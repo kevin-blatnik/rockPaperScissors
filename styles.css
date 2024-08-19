@@ -1,0 +1,33 @@
+.titleDeck {
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 45px;
+}
+
+.titleCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0px;
+    gap: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em blue;
+}
+
+h1 {
+    font-size: 36px;
+    color: white;
+    background-color: darkgray;
+    margin: 0px;
+}
+
+.imgTitle {
+    width: 200px;
+}
+
+.emojiDivider {
+    font-size: 35px;
+    margin: 0px;
+}

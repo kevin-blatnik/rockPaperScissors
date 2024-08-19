@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <link rel='stylesheet' href='styles.css'>
+        <title>Rock, Paper, Scissors!</title>
+        <script src='javascript.js'></script>
+    </head>
+    <body>
+        <div class='titleDeck'>
+            <card class='titleCard'>
+                <h1 id='titleRock'>ROCK</h1>
+                <img class='imgTitle' alt='ROCK' src='images\pexels-pixabay-161702.jpg'>
+            </card>
+            <p class='emojiDivider'>🔥</p>
+            <card class='titleCard'>
+                <h1 id='titlePaper'>PAPER</h1>
+                <img class='imgTitle' alt='Paper' src='images\pexels-matreding-6672292.jpg'>
+            </card>
+            <p class='emojiDivider'>🔥</p>
+            <card class='titleCard'>
+                <h1 id='titleScissors'>SCISSORS</h1>
+                <img class='imgTitle' alt='Scissors' src='images\pexels-jessbaileydesign-755991.jpg'>
+            </card>
+        </div>
+        <div class='scoreBoard'>
+            <card id='cardRowHuman'>
+                <h3 class='humanTitle'>Human</h3>
+                <p class='scoreBox'></p>
+            </card>
+            <card id='cardRowComp'>
+                <h3 class='cardTitle'>AI</h3>
+                <p class='scoreBox'></p>
+            </card>
+        </div>
+        <div class='playBoard'>
+            <img class='imgAvatar' id='imgHuman' alt='Human Avatar'>
+            <img class='imgChoice' id='imgHumanChoice' alt='Human&#39;s Move'>
+            <img class='imgChoice' id='imgCompChoice' alt='AI&#39;s Move'>
+            <img class='imgAvatar' id='imgComp' alt='AI Avatar'>
+        </div>
+
+        <div class='buttonRow'>
+            <button class='btnChoice' id='btnRock'>Rock</button>
+            <button class='btnChoice' id='btnPaper'>Paper</button>
+            <button class='btnChoice' id='btnScissors'>Scissors</button>
+        </div>
+
+
+
+
+    </body>
+</html>
