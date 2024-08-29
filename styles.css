@@ -1,9 +1,61 @@
+.container {
+    margin: 0;
+    min-height: 100vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 75px 0 0 0; /* match w header height */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+    height: 75px; /* match w container top padding and navUp top */
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    transition: top 0.2s ease-in-out;
+    margin: 0px;
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+    top: 0px;
+    position: fixed;
+    width: 100%;
+}
+
+.navUp {
+    top:-75px; /* match with header height */
+}
+
+.headerButtons {
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    gap: 15px;
+    color: white;
+}
+
+.noDecoration {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
 .titleDeck {
     background-color: darkgray;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     padding: 45px;
+    gap: 25px;
 }
 
 .titleCard {
@@ -23,11 +75,17 @@ h1 {
     margin: 0px;
 }
 
+h3 {
+    color: white;
+    font-size:24px;
+    margin: 0px;
+}
+
 .imgTitle {
     width: 200px;
 }
 
-.emojiDivider {
+.emoji {
     font-size: 35px;
     margin: 0px;
 }

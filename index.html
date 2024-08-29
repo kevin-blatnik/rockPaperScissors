@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
     <head>
         <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' href='styles.css'>
         <title>Rock, Paper, Scissors!</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src='javascript.js'></script>
     </head>
-    <body>
+    <body class='container'>
+        <header class='headerTop navDown'>
+            <h3 >Rock Paper Scissors</h3>
+            <ul class='headerButtons'>
+                <li class='noMargin'><a class='noDecoration' href='#'>Log in</a></li>
+                <li class='noMargin'><a class='noDecoration' href='#'>Create Account</a></li>
+                <li class='noMargin'><a class='noDecoration' href='#'>Contact Us</a></li>
+            </ul>
+        </header>
         <div class='titleDeck'>
             <card class='titleCard'>
                 <h1 id='titleRock'>ROCK</h1>
                 <img class='imgTitle' alt='ROCK' src='images\pexels-pixabay-161702.jpg'>
             </card>
-            <p class='emojiDivider'>🔥</p>
+            <p class='emoji'>🔥</p>
             <card class='titleCard'>
                 <h1 id='titlePaper'>PAPER</h1>
                 <img class='imgTitle' alt='Paper' src='images\pexels-matreding-6672292.jpg'>
             </card>
-            <p class='emojiDivider'>🔥</p>
+            <p class='emoji'>🔥</p>
             <card class='titleCard'>
                 <h1 id='titleScissors'>SCISSORS</h1>
                 <img class='imgTitle' alt='Scissors' src='images\pexels-jessbaileydesign-755991.jpg'>
@@ -45,7 +55,21 @@
             <button class='btnChoice' id='btnPaper'>Paper</button>
             <button class='btnChoice' id='btnScissors'>Scissors</button>
         </div>
+        <div class='filler'>
+            <card class='titleCard'>
+                <h1 id='titleScissors'>SCISSORS</h1>
+                <img class='imgTitle' alt='Scissors' src='images\pexels-jessbaileydesign-755991.jpg'>
+            </card>
 
+            <card class='titleCard'>
+                <h1 id='titleScissors'>SCISSORS</h1>
+                <img class='imgTitle' alt='Scissors' src='images\pexels-jessbaileydesign-755991.jpg'>
+            </card>
+            <card class='titleCard'>
+                <h1 id='titleScissors'>SCISSORS</h1>
+                <img class='imgTitle' alt='Scissors' src='images\pexels-jessbaileydesign-755991.jpg'>
+            </card>
+        </div>
 
 
 
