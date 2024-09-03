@@ -72,10 +72,14 @@ header {
     background-color: rgb(36, 114, 36);
     height: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;   
-    gap: 50px;
+    /*gap: 50px;*/
+}
+
+.scoreBoard card:first-child {
 }
 
 .teamNames {
@@ -93,7 +97,12 @@ header {
 .cardRow {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 5px;
+}
+
+.cardRow h3:first-child {
+    margin-left: auto;
 }
 
 .scoreBox {
@@ -101,7 +110,8 @@ header {
     width: 15px;
     border-style: solid;
     border-radius: 2px;
-    border-color: white;;
+    border-color: white;
+    margin: 0px;
 }
 
 h1 {
