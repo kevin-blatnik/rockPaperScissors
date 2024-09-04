@@ -14,10 +14,10 @@ h3 {
     margin: 0;
     min-height: 100vh;
 
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
+    /* display:flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* align-items: stretch; */
     padding: 75px 0 0 0; /* match w header height */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
@@ -122,6 +122,46 @@ header {
 
 .inningRow h3 {
     border-color: rgb(36, 114, 36);
+}
+
+.warningTrackDiv {
+    height: 50px;
+    background-color: rgb(216, 81, 18);
+}
+
+.playBoard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 25px;
+    background-image: url("./images/baseball-field-1548348_1920.jpg");
+}
+
+.buttonCol {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imgMove {
+    width: 250px;
+    height: 250px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: black;
+}
+
+.imgAvatar {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: black;
+}
+
+.btnMove {
+    width: 200px;
+    height: 75px;
 }
 
 .imgTitle {
