@@ -1,3 +1,15 @@
+h1 {
+    font-size: 36px;
+    color: white;
+    margin: 0px;
+}
+
+h3 {
+    color: white;
+    font-size:24px;
+    margin: 0px;
+}
+
 .container {
     margin: 0;
     min-height: 100vh;
@@ -68,6 +80,13 @@ header {
     text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em blue;
 }
 
+.titleDiv {
+    background-color: rgb(36, 114, 36);
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 50px 0px 125px;
+}
+
 .scoreBoard {
     background-color: rgb(36, 114, 36);
     height: 200px;
@@ -75,24 +94,10 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;   
-    /*gap: 50px;*/
+    padding-bottom: 25px;   
+    gap: 5px;
 }
 
-.scoreBoard card:first-child {
-}
-
-.teamNames {
-    gap: 30px;
-}
-
-.flexCols {
-    display:flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    height: 300px;
-}
 
 .cardRow {
     display: flex;
@@ -103,6 +108,7 @@ header {
 
 .cardRow h3:first-child {
     margin-left: auto;
+    width: 100px; /* Shifts team names left */
 }
 
 .scoreBox {
@@ -114,17 +120,8 @@ header {
     margin: 0px;
 }
 
-h1 {
-    font-size: 36px;
-    color: white;
-    background-color: darkgray;
-    margin: 0px;
-}
-
-h3 {
-    color: white;
-    font-size:24px;
-    margin: 0px;
+.inningRow h3 {
+    border-color: rgb(36, 114, 36);
 }
 
 .imgTitle {
