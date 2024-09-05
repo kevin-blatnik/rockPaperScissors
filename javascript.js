@@ -42,3 +42,41 @@ function hasScrolled() {
     }
 }
 
+var playerFrame = document.getElementById("playerImage");
+var isPlayerMove = true;
+
+document.getElementById("btnRock").addEventListener('click', function() {
+    if(isPlayerMove) {
+        // isPlayerMove = false;
+        chooseRock(playerFrame);
+    }
+});
+document.getElementById("btnPaper").addEventListener('click', function() {
+    if(isPlayerMove) {
+        // isPlayerMove = false;
+        choosePaper(playerFrame);
+    }
+});
+document.getElementById("btnScissors").addEventListener('click', function() {
+    if(isPlayerMove) {
+        isPlayerMove = false;
+        chooseScissors(playerFrame);
+        pause();
+        isPlayerMove = true;
+    }
+});
+const delay = ms => new Promise(res => setTimeout(res, ms));
+const pause = async () => {
+    await delay(5000);
+    console.log("Waited 5s");
+};
+
+function chooseRock(frame) {
+    frame.setAttribute('src', './images/pexels-pixabay-161702.jpg')
+}
+function choosePaper(frame) {
+    frame.setAttribute('src', 'images/pexels-matreding-6672292.jpg')
+}
+function chooseScissors(frame) {
+    frame.setAttribute('src', 'images/pexels-jessbaileydesign-755991.jpg')
+}
