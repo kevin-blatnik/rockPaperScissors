@@ -98,7 +98,6 @@ header {
     gap: 5px;
 }
 
-
 .cardRow {
     display: flex;
     justify-content: center;
@@ -116,7 +115,7 @@ header {
     width: 15px;
     border-style: solid;
     border-radius: 2px;
-    border-color: white;
+    border-color: rgb(11, 66, 32); 
     margin: 0px;
 }
 
@@ -131,9 +130,10 @@ header {
 
 .playBoard {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 50px 25px;
+    padding: 50px 50px;
+    gap: 25px;
     background-image: url("./images/baseball-field-1548348_1920.jpg");
 }
 
@@ -141,27 +141,46 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.imgMove {
-    width: 250px;
-    height: 250px;
-    border-style: solid;
-    border-radius: 2px;
-    border-color: black;
-}
-
-.imgAvatar {
-    width: 200px;
-    height: 200px;
-    border-style: solid;
-    border-radius: 2px;
-    border-color: black;
+    /* min-width: 100px; */
+    
+    min-width: 50;
+    width: 100%;  
+    max-width: 100px;
+    flex-shrink: 0.7;
 }
 
 .btnMove {
-    width: 200px;
-    height: 75px;
+    height: 60px;
+}
+
+
+.imgMove {
+    border-style: solid;
+    border-radius: 2px;
+    border-color: rgb(65, 133, 65);
+    
+    min-width: 0;
+    width: 100%;  
+    max-width: 275px;
+    flex-shrink: 0.7;
+}
+
+.imgAvatar {
+    border-style: solid;
+    border-radius: 2px;
+
+    min-width: 0;
+    width: 100%;
+    max-width: 200px;
+    flex-shrink: 0.8;
+}
+
+#imgPlayer {
+    border-color: rgb(65,133,65);    
+}
+
+#imgAI {
+    border-color: rgb(0, 238, 255);
 }
 
 .imgTitle {
