@@ -110,8 +110,8 @@ function aiMove() {
             chooseScissors(aiFrame);
             aiChoice = 2;
     }
-    isPlayerMove = true;
     randTurn += 1;
+    isPlayerMove = true;
 }
 
 function chooseRock(frame) {
@@ -145,6 +145,7 @@ function compareMoves(player, ai) {
             document.getElementById("warningTrack").textContent = moveToString(player) + " beats " + moveToString(ai) + " ... Player wins round!";
             console.log('Player 1 wins round ' + turn);
             turn++;
+            checkEndGame();
             break;
         case 2: //AI win
             //update scoreboard
@@ -154,6 +155,7 @@ function compareMoves(player, ai) {
             document.getElementById("warningTrack").textContent = moveToString(ai) + " beats " + moveToString(player) + " ... AI wins round!";
             console.log('AI wins round ' + turn);
             turn++;
+            checkEndGame();
             break;
     }
 }
@@ -183,7 +185,42 @@ function updateScoreboard(didPlayerWin) {
     }
 }
 
+function checkEndGame() {
+    if(turn == 10) {
+        //Pause game play
+        document.getElementById("btnRock").disabled = true;
+        document.getElementById("btnPaper").disabled = true;
+        document.getElementById("btnScissors").disabled = true;
 
+        //Prompt new game
+
+
+        //Reset Scoreboard and random
+
+    }
+}
+
+function resetBoard() {
+    //Pause game play
+    document.getElementById("btnRock").disabled = false;
+    document.getElementById("btnPaper").disabled = false;
+    document.getElementById("btnScissors").disabled = false;
+
+    isPlayerMove = true;
+    playerChoice = null;
+    aiChoice = null;
+    turn = 1;
+    randTurn = 0;
+    playerScore = 0;
+    aiScore = 0;
+
+    // RNG - 100 numbers to be modded by 3
+    array = new Uint32Array(100);
+    self.crypto.getRandomValues(array);
+
+    //reset scoreboard
+
+}
 
 
 
