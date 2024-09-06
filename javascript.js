@@ -129,10 +129,12 @@ function chooseBlank(frame) {
 
 function compareMoves(player, ai) {
     var diff = ( player - ai + 3 ) % 3;
+
     console.log(player + " " + ai + " " + diff);
     switch(diff) {
         case 0: //push
             //add push action
+            document.getElementById("warningTrack").textContent = "Push...";
             console.log('push!');
             break;
         case 1: //player win
@@ -140,6 +142,7 @@ function compareMoves(player, ai) {
             playerScore++;
             updateScoreboard(true);
             //announce round win
+            document.getElementById("warningTrack").textContent = moveToString(player) + " beats " + moveToString(ai) + " ... Player wins round!";
             console.log('Player 1 wins round ' + turn);
             turn++;
             break;
@@ -148,10 +151,19 @@ function compareMoves(player, ai) {
             aiScore++;
             updateScoreboard(false);
             //announce round win
+            document.getElementById("warningTrack").textContent = moveToString(ai) + " beats " + moveToString(player) + " ... AI wins round!";
             console.log('AI wins round ' + turn);
             turn++;
             break;
     }
+}
+
+function moveToString(move) {
+    var strMovesArray = ['Rock', 'Paper', 'Scissors'];
+    if(move < 0 || move > 2)
+        return -1;
+    else
+        return strMovesArray[move];
 }
 
 function updateScoreboard(didPlayerWin) {

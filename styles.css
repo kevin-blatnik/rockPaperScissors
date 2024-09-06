@@ -123,9 +123,16 @@ header {
     border-color: rgb(36, 114, 36);
 }
 
-.warningTrackDiv {
+#warningTrack {
     height: 50px;
+    display: flex;
     background-color: rgb(216, 81, 18);
+    margin: 0px;
+
+    font-size: 24;
+    font-weight: 100;
+    justify-content: center;
+    align-items: center;
 }
 
 .playBoard {
@@ -152,7 +159,6 @@ header {
 .btnMove {
     height: 60px;
 }
-
 
 .imgMove {
     border-style: solid;
