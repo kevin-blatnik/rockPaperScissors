@@ -53,11 +53,14 @@ var playerScore = 0;
 var aiScore = 0;
 
 // RNG - 100 numbers to be modded by 3
-const array = new Uint32Array(100);
+const array = new Uint32Array(1000);
 self.crypto.getRandomValues(array);
 
 //These 3 Events will run the game
 document.getElementById("btnRock").addEventListener('click', function() {
+    if(turn == 10) {
+        resetBoard();
+    }
     if(isPlayerMove) {
         chooseBlank(aiFrame);
         playerChoice = 0;
@@ -67,7 +70,11 @@ document.getElementById("btnRock").addEventListener('click', function() {
         compareMoves(playerChoice, aiChoice);
     }
 });
+
 document.getElementById("btnPaper").addEventListener('click', function() {
+    if(turn == 10) {
+        resetBoard();
+    }
     if(isPlayerMove) {
         chooseBlank(aiFrame);
         playerChoice = 1;
@@ -77,7 +84,11 @@ document.getElementById("btnPaper").addEventListener('click', function() {
         compareMoves(playerChoice, aiChoice);
     }
 });
+
 document.getElementById("btnScissors").addEventListener('click', function() {
+    if(turn == 10) {
+        resetBoard();
+    }
     if(isPlayerMove) {
         chooseBlank(aiFrame);
         playerChoice = 2;
@@ -142,18 +153,26 @@ function compareMoves(player, ai) {
             playerScore++;
             updateScoreboard(true);
             //announce round win
-            document.getElementById("warningTrack").textContent = moveToString(player) + " beats " + moveToString(ai) + " ... Player wins round!";
             turn++;
-            checkEndGame();
+            if(turn == 10) {
+                document.getElementById("warningTrack").textContent = getWinnerString() + " Pick again to start a new game...";
+            }
+            else {
+                document.getElementById("warningTrack").textContent = moveToString(player) + " beats " + moveToString(ai) + " ... Player wins round!";
+            }
             break;
         case 2: //AI win
             //update scoreboard
             aiScore++;
             updateScoreboard(false);
             //announce round win
-            document.getElementById("warningTrack").textContent = moveToString(ai) + " beats " + moveToString(player) + " ... AI wins round!";
             turn++;
-            checkEndGame();
+            if(turn == 10) {
+                document.getElementById("warningTrack").textContent = getWinnerString() + " Pick again to start a new game...";
+            }
+            else {
+                document.getElementById("warningTrack").textContent = moveToString(ai) + " beats " + moveToString(player) + " ... AI wins round!";
+            }
             break;
     }
 }
@@ -184,20 +203,12 @@ function updateScoreboard(didPlayerWin) {
 }
 
 function checkEndGame() {
-    if(turn == 10) {
-        //Pause game play
-        document.getElementById("btnRock").disabled = true;
-        document.getElementById("btnPaper").disabled = true;
-        document.getElementById("btnScissors").disabled = true;
+    // //Pause game play
+    // document.getElementById("btnRock").disabled = true;
+    // document.getElementById("btnPaper").disabled = true;
+    // document.getElementById("btnScissors").disabled = true;
 
-        //Prompt new game
-        promptNewGame();
-        resetBoard();
-    }
-}
-
-function promptNewGame() {
-    alert(getWinnerString() + "\n Click OK to start a new game!");
+    resetBoard();
 }
 
 function getWinnerString() {
@@ -205,26 +216,26 @@ function getWinnerString() {
 }
 
 function resetBoard() {
-    //Pause game play
-    document.getElementById("btnRock").disabled = false;
-    document.getElementById("btnPaper").disabled = false;
-    document.getElementById("btnScissors").disabled = false;
+    // //Pause game play
+    // document.getElementById("btnRock").disabled = false;
+    // document.getElementById("btnPaper").disabled = false;
+    // document.getElementById("btnScissors").disabled = false;
 
     isPlayerMove = true;
     playerChoice = null;
     aiChoice = null;
     turn = 1;
-    randTurn = 0;
+    // randTurn = 0;
     playerScore = 0;
     aiScore = 0;
 
     // RNG - 100 numbers to be modded by 3
-    array = new Uint32Array(100);
-    self.crypto.getRandomValues(array);
+    // var array = new Uint32Array(100);
+    // self.crypto.getRandomValues(array);
 
     //reset scoreboard
     document.getElementById("sbR").textContent = "0";
-    document.getElementById("sbR").textContent = "0";
+    document.getElementById("sb2R").textContent = "0";
     for(var i=1; i<10; i++ ) {
         document.getElementById("sb" + i).textContent = "";
         document.getElementById("sb2" + i).textContent = "";
