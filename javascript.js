@@ -45,40 +45,46 @@ function hasScrolled() {
 var playerFrame = document.getElementById("playerImage");
 var aiFrame = document.getElementById("aiImage");
 var isPlayerMove = true;
+var playerChoice = null;
+var aiChoice = null;
 var turn = 1;
 var randTurn = 0;
 var playerScore = 0;
 var aiScore = 0;
 
+// RNG - 100 numbers to be modded by 3
 const array = new Uint32Array(100);
 self.crypto.getRandomValues(array);
 
-// for (const num of array) {
-//   console.log(num);
-// }
-
+//These 3 Events will run the game
 document.getElementById("btnRock").addEventListener('click', function() {
     if(isPlayerMove) {
         chooseBlank(aiFrame);
+        playerChoice = 0;
         isPlayerMove = false;
         chooseRock(playerFrame);
         aiMove();
+        compareMoves(playerChoice, aiChoice);
     }
 });
 document.getElementById("btnPaper").addEventListener('click', function() {
     if(isPlayerMove) {
         chooseBlank(aiFrame);
+        playerChoice = 1;
         isPlayerMove = false;
         choosePaper(playerFrame);
         aiMove();
+        compareMoves(playerChoice, aiChoice);
     }
 });
 document.getElementById("btnScissors").addEventListener('click', function() {
     if(isPlayerMove) {
         chooseBlank(aiFrame);
+        playerChoice = 2;
         isPlayerMove = false;
         chooseScissors(playerFrame);
         aiMove();
+        compareMoves(playerChoice, aiChoice);
     }
 });
 
@@ -90,16 +96,19 @@ const pause = async () => {
 
 function aiMove() {
     var move = array[randTurn] % 3;
-    console.log(move);
+    aiChoice = move;
     switch(move) {
         case 0:
             chooseRock(aiFrame);
+            aiChoice = 0;
             break;
         case 1:
             choosePaper(aiFrame);
+            aiChoice = 1;
             break;
         case 2:
             chooseScissors(aiFrame);
+            aiChoice = 2;
     }
     isPlayerMove = true;
     randTurn += 1;
@@ -117,3 +126,60 @@ function chooseScissors(frame) {
 function chooseBlank(frame) {
     frame.setAttribute('src', '')
 }
+
+function compareMoves(player, ai) {
+    var diff = ( player - ai + 3 ) % 3;
+    console.log(player + " " + ai + " " + diff);
+    switch(diff) {
+        case 0: //push
+            //add push action
+            console.log('push!');
+            break;
+        case 1: //player win
+            //update scoreboard
+            playerScore++;
+            updateScoreboard(true);
+            //announce round win
+            console.log('Player 1 wins round ' + turn);
+            turn++;
+            break;
+        case 2: //AI win
+            //update scoreboard
+            aiScore++;
+            updateScoreboard(false);
+            //announce round win
+            console.log('AI wins round ' + turn);
+            turn++;
+            break;
+    }
+}
+
+function updateScoreboard(didPlayerWin) {
+    if(didPlayerWin) {
+        //Update Inning
+        document.getElementById("sb" + turn).textContent = 1;
+        document.getElementById("sb2" + turn).textContent = 0;
+        //Update Player Score
+        document.getElementById("sbR").textContent = "" + playerScore;
+    }
+    else {
+        //Update Inning
+        document.getElementById("sb" + turn).textContent = 0;
+        document.getElementById("sb2" + turn).textContent = 1;
+        //Update Player Score
+        document.getElementById("sb2R").textContent = "" + aiScore;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
