@@ -143,7 +143,6 @@ function compareMoves(player, ai) {
             updateScoreboard(true);
             //announce round win
             document.getElementById("warningTrack").textContent = moveToString(player) + " beats " + moveToString(ai) + " ... Player wins round!";
-            console.log('Player 1 wins round ' + turn);
             turn++;
             checkEndGame();
             break;
@@ -153,7 +152,6 @@ function compareMoves(player, ai) {
             updateScoreboard(false);
             //announce round win
             document.getElementById("warningTrack").textContent = moveToString(ai) + " beats " + moveToString(player) + " ... AI wins round!";
-            console.log('AI wins round ' + turn);
             turn++;
             checkEndGame();
             break;
@@ -193,11 +191,17 @@ function checkEndGame() {
         document.getElementById("btnScissors").disabled = true;
 
         //Prompt new game
-
-
-        //Reset Scoreboard and random
-
+        promptNewGame();
+        resetBoard();
     }
+}
+
+function promptNewGame() {
+    alert(getWinnerString() + "\n Click OK to start a new game!");
+}
+
+function getWinnerString() {
+    return playerScore > aiScore ? "You won!!!" : "AI has prevailed...";
 }
 
 function resetBoard() {
@@ -219,6 +223,12 @@ function resetBoard() {
     self.crypto.getRandomValues(array);
 
     //reset scoreboard
+    document.getElementById("sbR").textContent = "0";
+    document.getElementById("sbR").textContent = "0";
+    for(var i=1; i<10; i++ ) {
+        document.getElementById("sb" + i).textContent = "";
+        document.getElementById("sb2" + i).textContent = "";
+    }
 
 }
 
